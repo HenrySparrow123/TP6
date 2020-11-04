@@ -1,8 +1,10 @@
 #include "Pile.hpp"
 #include <iostream>
 
-Pile::Pile(int Capacite) : c(Capacite),s(0), tab(new int[Capacite])
-{}
+Pile::Pile(int Capacite) : c(Capacite),s(0), tab(Capacite > 0 ? new int[Capacite] : nullptr)
+{
+    if (Capacite <= 0) throw std::invalid_argument("Pile sans capacité"); 
+}
 
 Pile::~Pile() 
 {
@@ -11,12 +13,12 @@ Pile::~Pile()
 
 bool Pile::empty() const
 {
-    //if (c <= 0) throw std::invalid_argument(const std::invalid_argument& e);
-    //else 
-    //{
+    if (c <= 0) throw std::invalid_argument("Nombre <= 0");
+    else 
+    {
         if (s == 0) return true;
         else return false;
-    //}
+    }
 }
 
 void Pile::push(int x)
@@ -27,7 +29,8 @@ void Pile::push(int x)
 
 void Pile::pop()
 {
-    s --;
+    if (s == 0) throw std::invalid_argument("Pile vide");
+    else s --;
 }
 
 int& Pile::top() const

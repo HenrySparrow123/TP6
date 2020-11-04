@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include "Pile.hpp"
 
 class Bavarde {
   std::string nom;
@@ -15,11 +16,10 @@ class Bavarde {
 Bavarde g("global");
 
 /*int main(int, char **) {
-   Bavarde t("local");
-   Bavarde s("statlocal");
+   //Bavarde t("local");
+   //Bavarde s("statlocal");
 
    //std::exit(1);
    //std::terminate();
    //std::unexpected(); // ne s'appelle pas normalement
-   return 0;
 }*/

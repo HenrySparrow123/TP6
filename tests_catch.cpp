@@ -1,5 +1,6 @@
 #include "catch.hpp"
 #include "Pile.hpp"
+#include <iostream>
 
 TEST_CASE("Constructeur par defaut") {
    Pile p; // cela implique que par defaut la capacite de la pile n'est pas nulle => pas d exception
@@ -8,18 +9,18 @@ TEST_CASE("Constructeur par defaut") {
    CHECK(  0 == p.size() );
 }
 
-/*TEST_CASE("Exceptions de mauvaise construction") {
-
-   REQUIRE_THROWS_AS( Pile(-1).empty(), std::invalid_argument );
+TEST_CASE("Exceptions de mauvaise construction") {
+   
+   CHECK_THROWS_AS( Pile(-1).empty(), std::invalid_argument );
    REQUIRE_THROWS_AS( Pile( 0).empty(), std::invalid_argument );
    
-}*/
+}
 
-/*TEST_CASE("Exception pile vide") {
+TEST_CASE("Exception pile vide") {
 
-   REQUIRE_THROWS_AS( Pile().pop(), std::invalid_argument );
-   
-}*/
+   REQUIRE_THROWS_AS(Pile().pop(), std::invalid_argument );
+
+}
 
 TEST_CASE("Live pile") {
     Pile p(10);
